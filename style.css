@@ -80,10 +80,16 @@ li a{
     font-size: 35px;
     cursor: pointer;
 }
-.mobile-menu{
-    margin-left: 0;
-
+.uil-multiply{
+    position: absolute; 
+    top:30px;
+    right:36px;
+    display: none;
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
 }
+
 
  @media screen and (max-width: 966px){
    nav{
@@ -100,7 +106,14 @@ li a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: -100%;
+    transition: all 1s ease;
    }
+
+    nav .mobile-menu{
+    margin-right: 0;
+   } 
+    
    nav ul li{
     font-size: 2em;
     padding-top: 15px;
@@ -109,4 +122,7 @@ li a{
     .uil-bars{
     display: block;
    } 
+   .uil-multiply{
+    display:block;
+   }
  }
