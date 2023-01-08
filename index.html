@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -14,7 +14,7 @@
 </head>
 <body>
     <header id="particles-js">
-        <nav>
+        <nav id="navbar">
             
             <span><img src="logo.png" height="160px" width="150px"></span>
             <ul class="nav-links" style="display: flex; list-style: none;">
@@ -35,12 +35,30 @@
             </div>          
         </div>
     </header>
-    <section>
-        <div>
-            <div></div>
-            <div></div>
+    <section class="first-section">
+        <div class="first-section-content">
+            <div class="thumbnail-img">
+                <img src="pic.jpg" alt="profile" class="thumbnail" style="filter: grayscale(60%);">
+            </div>
+        </div>
+        <div class="second-section-content" >
+            <h1 class="animate__animated  animate__backInUp animate__slower"> About Me <i class="uil uil-book-reader" style="font-size: 40px;"></i></h1>
+            <p class="animate__animated animate__backInUp animate__slower">I'm a 21 years old student at the University of Science ibnu Zohr in Morocco. I'm a Backend Developer and I'm currently learning Frontend Development.</p>
+            <p class="animate__animated animate__backInUp animate__slower">I'm a hard worker and I'm always looking for new challenges. I'm a fast learner and I'm always looking for new opportunities.</p>
+            <p class="animate__animated animate__backInUp animate__slower">I'm a team player and I'm always ready to help my teammates.</p>
+            <p class="animate__animated animate__backInUp animate__slower">I'm a problem solver and I'm always looking for new solutions.</p>
+            <div class="informations">
+                <p class="animate__animated animate__backInUp animate__slower"><i class="uil uil-user"></i> Soufiane TAATALLA</p>
+                <p class="animate__animated animate__backInUp animate__slower"><i class="uil uil-envelope"></i> Email:soufiane.taatalla@gmail.com</p>
+                <p class="animate__animated animate__backInUp animate__slower"><i class="uil uil-phone"></i> Phone: +212 6 78 10 29 40</p>
+                <p class="animate__animated animate__backInUp animate__slower"><i class="uil uil-map-marker"></i> Location: Agadir, Morocco</p>
+                <p class="animate__animated animate__backInUp animate__slower"><i class="uil uil-graduation-cap"></i> Birthday:27/08/2001</p>
+                
+            </div>
         </div>
     </section>
+   
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="style.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
