@@ -141,6 +141,7 @@ li a{
     height: 100vh;
     width: 100%;
     display: flex;
+    margin-bottom: 9em;
 
 }
 .first-section-content{
@@ -170,21 +171,26 @@ li a{
     transform: translate(-50%,-50%);
 }
 
-.second-section-content {
+.first-section .second-section-content {
     width: 50%;
     height: 100%;
 }
-.second-section-content h1{
+.first-section .second-section-content h1{
     margin-top: 20px;
-    padding:20px 20px;
+    padding:20px 18px;
     line-height: 1.2;
     color:rgb(95,95,95);
     text-align: center;
     font-size: xx-large;
     font-weight: 600;
 }
-p{
-    margin-top: 18px;
+
+.informations span{
+    padding-left: 30px;
+    float: left;
+}
+.first-section .second-section-content p{
+    margin-top: 15px;
     padding:8px 8px;
     line-height: 1.2;
     color:rgb(95,95,95);
@@ -192,7 +198,9 @@ p{
     font-size: large;
     font-weight: 600;
 }
-
+.thumbnail-img .thumbnailSmall{
+    display: none;
+}
 @media screen and (max-width: 978px){
     .first-section{
         flex-direction: column;
@@ -201,27 +209,223 @@ p{
         width: 100%;
         height: 50%;
     }
-    .second-section-content{
+    .first-section .second-section-content{
         width: 100%;
         height: 50%;
     }
     .thumbnail-img{
+        padding-top: 20px ;
         width: 100%;
         height: 100%;
+    }
+    .informations{
+        padding-left: 0px;
+        display: flex;     
+        justify-content: center; 
+    }
+    .informations span{
+        margin: auto ;
+        padding-left: 0px;
+        float: none;
+        text-align: center;
     }
     .thumbnail{
         width: 60%;
         height: 100%;
-            top: 20%;
+        top: 20%;
         left: 20%;
         transform: translate(-50%,-50%);
     }
-    .second-section-content h1{
+   .first-section .second-section-content h1{
         margin-top: 4em;
         font-size: 30px;
     }
-    .second-section-content p{
-        font-size: 20px;
+   .first-section .second-section-content p{
+        font-size: 14px;
+        margin-top: 0px;
+    }
+    /* .thumbnail{
+        display: none;
+    } */
+    
+}
+/*****************second section******************/
+.second-section{
+    height: 100vh;
+    width: 100%;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12em;
+    background-attachment: fixed;
+    background-color: #EAEAEA;
+    background-attachment: fixed;
+}
+.second-section .second-section-content{
+    padding-top:3.5em ;
+    width: 100%;
+    /* margin-top: 20px; */
+ 
+} 
+.second-section .second-section-content h1{
+    margin-top: 20px;
+    line-height: 1.2;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 600;
+} 
+  
+
+.skills{
+    margin-top:0;
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.skills-part{
+    margin: auto;
+    margin-right: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.skill-bar{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 8px;
+}
+ .skill-bar .skill-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px; 
+}
+.skill-bar .skill-info p{
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 2em;
+}
+.skill-bar .bar{
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.skill-bar .bar span{
+    width: 50%;
+    height: 100%;
+    background-color: #9fc9f3;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.skill-bar .bar .html{
+    width: 90%;
+    animation: h 70s;
+}
+.skill-bar .bar .css{
+    width: 50%;
+    animation: c 70s;
+}
+.skill-bar .bar .js{
+    width: 45%;
+    animation: j 70s;
+}
+.skill-bar .bar .php{
+    width: 70%;
+    animation: p 70s;
+}
+.skill-bar .bar .sql{
+    width: 50%;
+    animation: m 70s;
+}
+.skill-bar .bar .laravel{
+    width: 70%;
+    animation: l 70s;
+}
+
+.skill-bar .bar .uml{
+    width: 60%;
+    animation: b 70s;
+}
+.skill-bar .bar .git{
+    width: 70%;
+    animation: g 70s;
+}
+
+@keyframes h {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 90%;
     }
 }
+    
+@keyframes c {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 50%;
+    }
+}
+@keyframes j {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 45%;
+    }
+}
+@keyframes p {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+@keyframes m {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 50%;
+    }
+}
+@keyframes l {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+@keyframes b {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 60%;
+    }
+}
+@keyframes g {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+
     

@@ -8,12 +8,28 @@ function MyFunction(){
       navLinks.classList.toggle('mobile-menu');
 
 }
+const thumbnail = document.getElementsByClassName('thumbnail');
 
-var image = document.getElementsByClassName('thumbnail');
-new simpleParallax(image, {
-      delay: .68,
-	orientation: 'right'
-});
+
+      new simpleParallax(thumbnail, {
+            delay: .6,
+            orientation: 'right'
+      });
+
+// const thumbnailSmall = document.getElementsByClassName('thumbnailSmall');
+
+// if(thumbnailSmall){
+//       new simpleParallax(thumbnailSmall, {
+//             delay: .8,
+//             transition: 'cubic-bezier(0,0,0,1)'
+//       });
+// }
+
+// var image = document.getElementsByClassName('thumbnailSmall');
+// new simpleParallax(image, {
+// 	delay: .8,
+// 	transition: 'cubic-bezier(0,0,0,1)'
+// });
 // // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {myFunction()};
 
