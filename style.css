@@ -164,6 +164,7 @@ li a{
     width: 60%;
     height: 70%;
     margin: auto;
+    margin-right: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     overflow: hidden;
     top: 20%;
@@ -177,7 +178,7 @@ li a{
 }
 .first-section .second-section-content h1{
     margin-top: 20px;
-    padding:20px 18px;
+    padding-top:30px; 
     line-height: 1.2;
     color:rgb(95,95,95);
     text-align: center;
@@ -187,7 +188,7 @@ li a{
 
 .informations span{
     padding-left: 30px;
-    float: left;
+    /* float: left; */
 }
 .first-section .second-section-content p{
     margin-top: 15px;
@@ -196,7 +197,7 @@ li a{
     color:rgb(95,95,95);
     text-align: center;
     font-size: large;
-    font-weight: 600;
+    font-weight: 300;
 }
 .thumbnail-img .thumbnailSmall{
     display: none;
@@ -212,6 +213,7 @@ li a{
     .first-section .second-section-content{
         width: 100%;
         height: 50%;
+        margin: auto;
     }
     .thumbnail-img{
         padding-top: 20px ;
@@ -234,6 +236,7 @@ li a{
         height: 100%;
         top: 20%;
         left: 20%;
+        margin-right: 4em;
         transform: translate(-50%,-50%);
     }
    .first-section .second-section-content h1{
@@ -426,6 +429,53 @@ li a{
         width: 70%;
     }
 }
+/******third section*******/
+.third-section{
+    height: 60vh;
+    width: 100%;
+    padding: 20px 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.third-section .third-section-content{
+  margin-top: 2em;
+}
+.container{
+    margin-top:3em;
+    width: 70%;
+    height: auto;
+    position: relative;
 
-    
+}
+.container::after{
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+.container .timeline .timeline-item{
+   width: 50%;
+   height: auto;
+   padding: 15px 20px;
+   margin: auto;
+   margin-bottom: 30px;
+   background-color: #8EC5FC;
+   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.4);
+     
+}
+
+.container .timeline .timeline-item:nth-child(2) {
+    float: right;
+    clear: left;
+    transform: translateX(10%);
+}
+.container .timeline .timeline-item:nth-child(1){
+    float: left;
+    clear: right;
+    transform: translateX(-10%);
+}
