@@ -431,7 +431,7 @@ li a{
 }
 /******third section*******/
 .third-section{
-    height: 60vh;
+    height: 80vh;
     width: 100%;
     padding: 20px 20px;
     display:flex;
@@ -453,8 +453,9 @@ li a{
   content: "";
   position: absolute;
   width: 3px;
-  height: 100%;
+  height: 90%;
   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  z-index: -2;
 }
 .container .timeline .timeline-item{
    width: 50%;
@@ -479,3 +480,40 @@ li a{
     clear: right;
     transform: translateX(-10%);
 }
+
+.container .timeline .timeline-item p{   
+    letter-spacing: 1px;
+}
+
+.container .timeline .timeline-item .circle{
+    position: absolute;
+    top:0px;
+    width: 30px;
+    height: 30px;   
+    background-color:rgba(118, 187, 224, 0.527);
+    border-radius: 50%;
+}
+.container .timeline .timeline-item .circle::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 15px;
+    height: 15px;
+    background-color: hsl(210, 67%, 64%);
+    border-radius: 50%;
+}
+
+.container .timeline .timeline-item:nth-child(1) .circle{
+    right:-30px;
+    transform: translate(108%,-50%); 
+}
+
+.container .timeline .timeline-item:nth-child(2) .circle{
+    left:0px;
+    top:50px;
+    transform: translateX(-3.75em); 
+}
+
+
