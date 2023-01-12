@@ -1,4 +1,5 @@
 
+
 const navLinks = document.querySelector(".nav-links");
 const uil=document.querySelector(".uil");
 
@@ -9,13 +10,43 @@ function MyFunction(){
 
 }
 const thumbnail = document.getElementsByClassName('thumbnail');
-
-
       new simpleParallax(thumbnail, {
             delay: .6,
             orientation: 'right'
       });
-
+      const swiper = new Swiper('.swiper', {
+            // Optional parameters
+           
+            loop: true,
+            autoplay: {
+                  delay: 5000,
+                },
+            
+            grabCursor: true,
+            // If we need pagination
+            pagination: {
+              el: '.swiper-pagination',
+            },
+          
+            // Navigation arrows
+            // navigation: {
+            //   nextEl: '.swiper-button-next',
+            //   prevEl: '.swiper-button-prev',
+            // },
+            spaceBetween: 80,
+            // And if we need scrollbar
+            scrollbar: {
+              el: '.swiper-scrollbar',
+            },
+          });
+//  $(document).ready(function(){
+//             $(".owl-carousel").owlCarousel({
+//                 items: 1,
+//                 // loop: true,
+//             });
+//  });
+// //  
+ 
 // const thumbnailSmall = document.getElementsByClassName('thumbnailSmall');
 
 // if(thumbnailSmall){
