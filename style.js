@@ -27,7 +27,10 @@ const thumbnail = document.getElementsByClassName('thumbnail');
             pagination: {
               el: '.swiper-pagination',
             },
-          
+            effect: 'cube',
+            cubeEffect: {
+              slideShadows: false,
+            },
             // Navigation arrows
             // navigation: {
             //   nextEl: '.swiper-button-next',
