@@ -90,3 +90,18 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+window.onload = function() {
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // generate a five digit number for the contact_number variable
+      var parameters = {
+          "from_name": document.getElementById('name').value,
+          "email": document.getElementById('email').value,
+          "message": document.getElementById('message').value,
+      }
+
+      emailJs.send('service_md33vj4', 'template_ccnnzes', parameters).then(function(res) {
+          alert("success", res.status);
+      })
+  });
+}

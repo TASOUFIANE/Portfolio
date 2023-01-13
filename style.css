@@ -32,7 +32,7 @@ body{
     /* background: url(../images/hero.jpg) no-repeat center center/cover; */
     height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url(img.jpg) ;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url(img/img.jpg) ;
     background-attachment: fixed;
 }
 
@@ -221,6 +221,7 @@ li a{
 .thumbnail-img .thumbnailSmall{
     display: none;
 }
+
 @media screen and (max-width: 978px){
     .first-section{
         flex-direction: column;
@@ -266,6 +267,11 @@ li a{
    .first-section .second-section-content p{
         font-size: 14px;
         margin-top: 0px;
+    }
+    .informations{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
     /* .thumbnail{
         display: none;
@@ -692,7 +698,7 @@ textarea:focus::placeholder {
 }
 .svg:hover{
     transform: translateY(-20px);
-    transition: 1s;
+    transition: 1.5s; 
 }
 
 .svg img{
@@ -709,7 +715,7 @@ textarea:focus::placeholder {
         height: 100%;
     }
 }
-
+/***********footer Section**********/
 footer{
     width: 100%;
     height: 60vh;
@@ -764,7 +770,7 @@ footer .wave{
     left: 0;
     width: 100%;
     height: 100px;
-    background:#ffffff url(wave.png);
+    background:#ffffff url(img/wave.png);
     background-size: 1000px 100px;
 }
 @media screen and (max-width:600px) {

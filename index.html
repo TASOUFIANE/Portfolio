@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -15,6 +16,12 @@
     
     <link rel="stylesheet" href="style.css"/>
     <title>Portfolio</title>
+    <script type="text/javascript">
+        (function() {
+            
+            emailjs.init('GZK6YflWxyGHq4vMi');
+        })();
+    </script>
 </head>
 <body class="main" >
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="uil uil-arrow-up" style="font-size: 30px;"></i></button>
@@ -22,7 +29,7 @@
     <header id="particles-js">
         <nav id="navbar">
             
-            <span><img src="logo.png" height="160px" width="150px"></span>
+            <span><img src="img/logo.png" height="160px" width="150px"></span>
             <ul class="nav-links" style="display: flex; list-style: none;">
                 <li><a href="#">Home</a></li>
                 <li><a href="#section-1">About Me</a></li>
@@ -45,7 +52,7 @@
     <section class="first-section" id="section-1">
         <div class="first-section-content">
             <div class="thumbnail-img">
-                <img src="profile.jpg" alt="profile" class="thumbnail" >
+                <img src="img/profile.jpg" alt="profile" class="thumbnail" >
             </div>
         </div>
         <div class="second-section-content" >
@@ -55,10 +62,10 @@
             <p class="animate__animated animate__slideInRight animate__slower">I'm a hard worker and I'm always looking for new challenges. I'm a fast learner and I'm always looking for new opportunities.</p>
             <p class="animate__animated animate__slideInRight animate__slower">I'm a problem solver and I'm always looking for new solutions.</p>
             <div class="informations">
-                <p class="animate__animated animate__slideInRight animate__slower"> <span><i class="uil uil-schedule" style="color: #9FC9F3;font-size: 25px;"></i> <strong>Birthday :</strong> </span> 27/08/2001</p>               
-                <p class="animate__animated animate__slideInRight animate__slower"> <span> <i class="uil uil-map-marker" style="color: #9FC9F3;font-size: 25px;"></i> <strong>Location :</strong> </span>Agadir, Morocco</p>
-                <!-- <p class="animate__animated animate__slideInRight animate__slower"> <span> <i class="uil uil-phone" style="color: #9FC9F3;font-size: 25px;"></i> Phone: </span>+212 6 78 10 29 40</p> -->
-                <p class="animate__animated animate__slideInRight animate__slower"><span> <i class="uil uil-envelope" style="color: #9FC9F3;font-size: 25px;"></i> <strong>Email :</strong>  </span>soufiane.taatalla@gmail.com </p>
+                <p class="animate__animated animate__slideInRight animate__slower"> <span><i class="uil uil-schedule" style="color: #9FC9F3;font-size: 25px;margin-top: 8px;"></i> <strong>Birthday :</strong> </span> 27/08/2001</p>               
+                <p class="animate__animated animate__slideInRight animate__slower"> <span> <i class="uil uil-map-marker" style="color: #9FC9F3;font-size: 25px;margin-top: 8px;"></i> <strong>Location :</strong> </span>Agadir, Morocco</p>
+                <!-- <p class="animate__animated animate__slideInRight animate__slower"> <span> <i class="uil uil-phone" style="color: #9FC9F3;font-size: 25px;"></i> Phone: </span>+212 8 78 10 29 40</p> -->
+                <p class="animate__animated animate__slideInRight animate__slower"><span> <i class="uil uil-envelope" style="color: #9FC9F3;font-size: 25px;margin-top: 8px;"></i> <strong>Email :</strong>  </span>soufiane.taatalla@gmail.com </p>
             </div>
         </div>
     </section>
@@ -202,9 +209,9 @@
           
             <div class="swiper-wrapper">
               <!-- Slides -->
-              <div class="swiper-slide"><img src="1.PNG" alt=""></div>
-              <div class="swiper-slide"><img src="2.PNG" alt=""></div>
-              <div class="swiper-slide"><img src="3.PNG" alt=""></div>          
+              <div class="swiper-slide"><img src="img/1.PNG" alt=""></div>
+              <div class="swiper-slide"><img src="img/2.PNG" alt=""></div>
+              <div class="swiper-slide"><img src="img/3.PNG" alt=""></div>          
             </div>
            
             <div class="swiper-pagination"></div>
@@ -220,14 +227,14 @@
         </div>
         <div class="contact-me">          
             <div class="svg">
-                <img src="contact.svg" alt="">
+                <img src="img/contact.svg" alt="">
             </div>
             <div class="contact-me-content">
-                <form action="#" method="post">
+                <form id="conatact-form">
                      <input type="text"  id="name" placeholder="Enter your name">
-                     <input type="text"  id="name" placeholder="Enter your Email">  
-                     <textarea cols="30" rows="7" placeholder="Enter your Message"></textarea>
-                     <center><input type="submit"  class="button" value="send"></center>
+                     <input type="text"  id="email_id" placeholder="Enter your Email">  
+                     <textarea cols="30" rows="7" id="message" placeholder="Enter your Message"></textarea>
+                     <center><input type="submit"  class="button" value="send" onclick="SendMail()"></center>
                 </form>
              </div>
         </div>
@@ -240,8 +247,8 @@
             <div class="wave" id="wave4"></div>
         </div>
         <div class="footer-icons">
-            <div><a href="#"><i class="uil uil-github-alt"></i></a></div>
-            <div><a href="#"><i class="uil uil-linkedin-alt"></i></a></div>
+            <div><a href="https://github.com/TASOUFIANE"><i class="uil uil-github-alt"></i></a></div>
+            <div><a href="https://www.linkedin.com/in/soufiane-taatalla-9955581a7/"><i class="uil uil-linkedin-alt"></i></a></div>
         </div>
         <div class="footer-links">
             <div><a href="#">Home</a></div>
@@ -256,7 +263,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="style.js"></script>
+    <script src="js/style.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
 </body>
