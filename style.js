@@ -1,14 +1,29 @@
 
 
 const navLinks = document.querySelector(".nav-links");
-const uil=document.querySelector(".uil");
+const uil=document.querySelector(".u");
+const hero=document.querySelector(".main");
+uil.addEventListener('click',e=>{
+  uil.classList.toggle('uil-bars');
+  uil.classList.toggle('uil-multiply');
+  navLinks.classList.toggle('mobile-menu');
+  hero.classList.toggle('hero');
+})
+ document.querySelector('.nav-links').addEventListener('click', e => {
 
-function MyFunction(){
-      uil.classList.toggle('uil-multiply');
-      uil.classList.toggle('uil-bars');
-      navLinks.classList.toggle('mobile-menu');
+      if(hero.classList.contains('hero') && navLinks.classList.contains('mobile-menu')){
+          hero.classList.remove('hero');
+          navLinks.classList.remove('mobile-menu');
+          uil.classList.toggle('uil-bars');
+          uil.classList.toggle('uil-multiply');
+      }
+  // 2. determine which element originated the event
+  const el = e.target.getAttribute('href');
+  // 3. Matching strategy && Scroll into href of that element
+  e.target.classList.contains('nav-link') &&
+    document.querySelector(el).scrollIntoView({ behavior: 'smooth' });
+});
 
-}
 const thumbnail = document.getElementsByClassName('thumbnail');
       new simpleParallax(thumbnail, {
             delay: .6,
@@ -31,39 +46,15 @@ const thumbnail = document.getElementsByClassName('thumbnail');
             cubeEffect: {
               slideShadows: false,
             },
-            // Navigation arrows
-            // navigation: {
-            //   nextEl: '.swiper-button-next',
-            //   prevEl: '.swiper-button-prev',
-            // },
+          
             spaceBetween: 80,
-            // And if we need scrollbar
+        
             scrollbar: {
               el: '.swiper-scrollbar',
             },
           });
-//  $(document).ready(function(){
-//             $(".owl-carousel").owlCarousel({
-//                 items: 1,
-//                 // loop: true,
-//             });
-//  });
-// //  
+
  
-// const thumbnailSmall = document.getElementsByClassName('thumbnailSmall');
-
-// if(thumbnailSmall){
-//       new simpleParallax(thumbnailSmall, {
-//             delay: .8,
-//             transition: 'cubic-bezier(0,0,0,1)'
-//       });
-// }
-
-// var image = document.getElementsByClassName('thumbnailSmall');
-// new simpleParallax(image, {
-// 	delay: .8,
-// 	transition: 'cubic-bezier(0,0,0,1)'
-// });
 // // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {myFunction()};
 

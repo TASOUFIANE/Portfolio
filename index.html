@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css"/>
     <title>Portfolio</title>
 </head>
-<body>
+<body class="main" >
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="uil uil-arrow-up" style="font-size: 30px;"></i></button>
 
     <header id="particles-js">
@@ -25,11 +25,11 @@
             <span><img src="logo.png" height="160px" width="150px"></span>
             <ul class="nav-links" style="display: flex; list-style: none;">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About Me</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact Me</a></li>
+                <li><a href="#section-1">About Me</a></li>
+                <li><a href="#section-2">Projects</a></li>
+                <li><a href="#section-3">Contact Me</a></li>
             </ul>
-            <i class="uil uil-bars"  onclick="MyFunction()"></i>
+            <i class="u uil uil-bars"></i>
         </nav>
         <div style="position: absolute;top:50%;left:50%; transform: translate(-50%,-50%); color: white;">
            
@@ -42,7 +42,7 @@
         </div>
     </header>
 
-    <section class="first-section">
+    <section class="first-section" id="section-1">
         <div class="first-section-content">
             <div class="thumbnail-img">
                 <img src="profile.jpg" alt="profile" class="thumbnail" >
@@ -193,7 +193,7 @@
         </div>
     </section>
 
-    <section class="fourth-section">
+    <section class="fourth-section"  id="section-2">
         <div class="fourth-section-content">
             <h1 class="animate__animated  animate__slideInRight animate__slow animate__delay-8s" style="text-align: center;"> My<span style="color:#9FC9F3;"> Projects</span></h1>
             <center><p style="font-size: medium;font-weight: bold;" class="animate__animated  animate__slideInRight animate__slower animate__delay-9s"> Some projects that I have worked in</p></center>
@@ -213,7 +213,7 @@
         </div>
     </section>
 
-    <section class="five-section">
+    <section class="five-section"  id="section-3">
         <div class="five-section-content">
             <h1 class="animate__animated  animate__slideInRight animate__slow animate__delay-8s" style="text-align: center;">Contact <span style="color:#9FC9F3;">Me</span></h1>
             <center><p style="font-size: medium;font-weight: bold;" class="animate__animated  animate__slideInRight animate__slower animate__delay-9s"> For any futur collaboration</p></center>
@@ -245,15 +245,15 @@
         </div>
         <div class="footer-links">
             <div><a href="#">Home</a></div>
-            <div><a href="#">About Me</a></div>
-            <div><a href="#">Projects</a></div>
-            <div><a href="#">Contact Me</a></div>
+            <div><a href="#section-1">About Me</a></div>
+            <div><a href="#section-2">Projects</a></div>
+            <div><a href="#section-3">Contact Me</a></div>
         </div>
         <div class="footer-copyright">
             <p style="padding-left: 20px;">© 2022 All rights reserved | Made with <i class="uil uil-heart"></i> by SOUFIANE TAATALLA</p>
         </div>
     </footer>
-   
+    
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="style.js"></script>

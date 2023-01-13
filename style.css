@@ -8,19 +8,24 @@
 body{
     overflow-x: hidden;
 }
+
+.hero{
+    overflow-y: hidden;
+}
 #myBtn {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
+    opacity: 0.8;
     z-index: 99;
     border: none;
     outline: none;
     background-color: rgb(59, 122, 238);
     color: white;
     cursor: pointer;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 20px;
   }
   
 #particles-js{
@@ -251,6 +256,7 @@ li a{
         top: 20%;
         left: 20%;
         margin-right: 4em;
+        margin-top: 2em;
         transform: translate(-50%,-50%);
     }
    .first-section .second-section-content h1{
@@ -648,6 +654,7 @@ input{
     border-color: gray;
     border-radius: 8px;
     border-width: 2px;
+    outline: none;
 }
 input:focus::placeholder {
     color: transparent;
@@ -681,6 +688,11 @@ textarea:focus::placeholder {
     margin-left: auto;
     width: 50%;
     height: 100%;
+   
+}
+.svg:hover{
+    transform: translateY(-20px);
+    transition: 1s;
 }
 
 .svg img{
