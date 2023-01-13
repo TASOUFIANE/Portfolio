@@ -8,7 +8,21 @@
 body{
     overflow-x: hidden;
 }
-
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgb(59, 122, 238);
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  
 #particles-js{
     /* background: url(../images/hero.jpg) no-repeat center center/cover; */
     height: 100vh;
@@ -687,6 +701,7 @@ textarea:focus::placeholder {
 footer{
     width: 100%;
     height: 60vh;
+    color: white;
     background-color: rgb(53,134,255);
     display: flex;
     flex-direction: column;
@@ -694,14 +709,14 @@ footer{
 }
 
 .footer-icons{
-    margin-top: 7em;
+    margin-top: 10em;
     display: flex;
     justify-content: space-between;
 }
 .footer-icons div a{
-    color: black;
+    color: #ffffff;
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 400;
     padding-left: 10px;
     margin-left: 10px;
     
@@ -719,9 +734,9 @@ footer{
 }
 .footer-links div a{
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.2em;
-    color: black;
+    color: rgb(255, 255, 255);
     margin-left: 8px;
 }
 .footer-links div:hover{
@@ -729,7 +744,7 @@ footer{
     transition: 0.5s;
 }
 .footer-copyright p{
-    font-weight: 600;
+    font-weight: 400;
 }
 
 footer .wave{
