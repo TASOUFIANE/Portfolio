@@ -134,7 +134,7 @@ li a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: -100%;
+    margin-right: -200%;
     transition: all 1s ease;
    }
 
@@ -160,7 +160,7 @@ li a{
     height: 100vh;
     width: 100%;
     display: flex;
-    margin-bottom: 9em;
+    margin-bottom: 10em;
 
 }
 .first-section-content{
@@ -210,7 +210,7 @@ li a{
     /* float: left; */
 }
 .first-section .second-section-content p{
-    margin-top: 15px;
+    margin-top: 13px;
     padding:8px 8px;
     line-height: 1.2;
     color:rgb(95,95,95);
@@ -232,11 +232,13 @@ li a{
     .first-section-content{
         width: 100%;
         height: 50%;
+       
     }
     .first-section .second-section-content{
         width: 100%;
         height: 50%;
         margin: auto;
+        /* margin-top: 3em; */
     }
     .thumbnail-img{
         padding-top: 20px ;
@@ -249,7 +251,7 @@ li a{
         justify-content: center; 
     }
     .informations span{
-        margin: auto ;
+        margin-top:0px;
         padding-left: 0px;
         float: none;
         text-align: center;
@@ -276,6 +278,16 @@ li a{
         justify-content: center;
         flex-direction: column;
     }
+    .first-section{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .informations  p{
+        margin-top: 0px;
+    }
     /* .thumbnail{
         display: none;
     } */
@@ -288,13 +300,10 @@ li a{
     padding: 20px 20px;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 12em;
-    background-attachment: fixed;
     background-color: #EAEAEA;
-    background-attachment: fixed;
 }
 .second-section .second-section-content{
-    padding-top:3.5em ;
+    padding-top:3em ;
     width: 100%;
     /* margin-top: 20px; */
  
@@ -303,7 +312,7 @@ li a{
     margin-top: 20px;
     line-height: 1.2;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 600;
 } 
   
@@ -315,7 +324,7 @@ li a{
     display: flex;
 }
 .skills-part{
-    margin: auto;
+    margin-top: 0em;
     margin-right: 30px;
     width: 100%;
     display: flex;
@@ -361,36 +370,36 @@ li a{
 
 .skill-bar .bar .html{
     width: 90%;
-    animation: h 70s;
+    animation: h 40s;
 }
 .skill-bar .bar .css{
     width: 50%;
-    animation: c 70s;
+    animation: c 40s;
 }
 .skill-bar .bar .js{
     width: 45%;
-    animation: j 70s;
+    animation: j 40s;
 }
 .skill-bar .bar .php{
     width: 70%;
-    animation: p 70s;
+    animation: p 40s;
 }
 .skill-bar .bar .sql{
     width: 50%;
-    animation: m 70s;
+    animation: m 40s;
 }
 .skill-bar .bar .laravel{
     width: 70%;
-    animation: l 70s;
+    animation: l 40s;
 }
 
 .skill-bar .bar .uml{
     width: 60%;
-    animation: b 70s;
+    animation: b 40s;
 }
 .skill-bar .bar .git{
     width: 70%;
-    animation: g 70s;
+    animation: g 40s;
 }
 
 @keyframes h {
@@ -460,11 +469,25 @@ li a{
 }
 
 
-@media screen and (max-width: 967px) {
+@media screen and (max-width: 360px) {
+    .skill-bar{
+        width: 100%;
+        /* margin: 2px 6px; */
+    }
+    .skill-bar .bar{
+        width: 100%;
+    }
     .skills-part{
-        margin: auto;
-        margin-right: 20px;
-        width: 90%;       
+        width: 50%;
+    }
+    .skill-bar .skill-info{
+        width: 80%;
+        padding: 0px 0px;
+    }
+    .skill-bar .skill-info p{
+        font-size: 14px;
+        font-weight: 600;
+        padding-left: 1em;
     }
     
 }
@@ -476,6 +499,7 @@ li a{
     display:flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2em;
 }
 
 .third-section .third-section-content{
@@ -598,6 +622,7 @@ li a{
 .fourth-section{
     height: 100vh;
     width: 100%;
+    margin-top: 2em;
     margin-bottom: auto;
     padding: 10px 10px;
     display:flex;
