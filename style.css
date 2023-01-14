@@ -471,6 +471,9 @@ li a{
 
 
 @media screen and (max-width: 393px) {
+    .first-section{
+        margin-top: 2em;
+    }
     .skill-bar{
         width: 100%;
         /* margin: 2px 6px; */
