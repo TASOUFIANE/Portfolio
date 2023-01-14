@@ -223,6 +223,9 @@ li a{
 }
 
 @media screen and (max-width: 978px){
+    body{
+        overflow-x: hidden;
+    }
     .first-section{
         flex-direction: column;
     }
@@ -454,6 +457,16 @@ li a{
     100% {
         width: 70%;
     }
+}
+
+
+@media screen and (max-width: 967px) {
+    .skills-part{
+        margin: auto;
+        margin-right: 20px;
+        width: 90%;       
+    }
+    
 }
 /******third section*******/
 .third-section{
