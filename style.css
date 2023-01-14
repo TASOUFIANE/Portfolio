@@ -117,15 +117,13 @@ li a{
     top: 0;
     width: 100%;
  } */
-
+ 
 
  @media screen and (max-width: 966px){
    nav{
     padding: 0;
    }
    nav ul{
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
-    backdrop-filter: blur( 4px );
     height: 100vh;
     width: 100%;
     margin-top: auto;
@@ -134,10 +132,14 @@ li a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: -200%;
     transition: all 1s ease;
+    margin-right: -200%;
    }
-
+   nav .nav-links-m{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+    backdrop-filter: blur( 4px );
+ 
+   }
     nav .mobile-menu{
     margin-right: 0;
    } 

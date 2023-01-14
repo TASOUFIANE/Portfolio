@@ -3,9 +3,11 @@
 const navLinks = document.querySelector(".nav-links");
 const uil=document.querySelector(".u");
 const hero=document.querySelector(".main");
+
 uil.addEventListener('click',e=>{
   uil.classList.toggle('uil-bars');
   uil.classList.toggle('uil-multiply');
+  navLinks.classList.toggle('nav-links-m');
   navLinks.classList.toggle('mobile-menu');
   hero.classList.toggle('hero');
 })
