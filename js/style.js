@@ -3,9 +3,22 @@
 const navLinks = document.querySelector(".nav-links");
 const uil=document.querySelector(".u");
 const hero=document.querySelector(".main");
-
+let click=0;
 uil.addEventListener('click',e=>{
+  ++click;
   uil.classList.toggle('uil-bars');
+  if(click==1){
+  for (var i = 0; i < document.getElementsByTagName("li").length; i++) {
+    document.getElementsByTagName("li")[i].style.display = "inline";
+      ++click;
+    }
+  }
+  else{
+    for (var i = 0; i < document.getElementsByTagName("li").length; i++) {
+      document.getElementsByTagName("li")[i].style.display = "none";
+        click=0;
+      }
+  }
   uil.classList.toggle('uil-multiply');
   navLinks.classList.toggle('nav-links-m');
   navLinks.classList.toggle('mobile-menu');
@@ -93,10 +106,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
  function SendMail() {
-  
-     
-      // generate a five digit number for the contact_number variable
-     
+      // generate a five digit number for the contact_number variable   
       emailjs.send("service_md33vj4","template_ccnnzes",{
         "from_name": document.getElementById('name').value,
         "email_id": document.getElementById('email_id').value,
