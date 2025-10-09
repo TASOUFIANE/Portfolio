@@ -164,7 +164,7 @@ li a{
     height: 100vh;
     width: 100%;
     display: flex;
-    margin-bottom: 10em;
+    margin-bottom: 14em;
 
 }
 .first-section-content{
@@ -501,13 +501,13 @@ li a{
 }
 /******third section*******/
 .third-section{
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
     padding: 20px 20px;
     display:flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 15em;
 }
 
 .third-section .third-section-content{
@@ -516,7 +516,7 @@ li a{
 .container{
     margin-top:3em;
     width: 70%;
-    height: auto;
+    /* height: auto; */
     position: relative;
 
 }
@@ -524,7 +524,7 @@ li a{
   content: "";
   position: absolute;
   width: 3px;
-  height: 90%;
+  height: 60%;
   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
   z-index: -2;
 }
@@ -541,16 +541,18 @@ li a{
      
 }
 
-.container .timeline .timeline-item:nth-child(2) {
+.container .timeline .timeline-item:nth-child(odd) {
     float: right;
     clear: left;
     transform: translateX(10%);
 }
-.container .timeline .timeline-item:nth-child(1){
+.container .timeline .timeline-item:nth-child(even){
     float: left;
     clear: right;
     transform: translateX(-10%);
 }
+
+
 
 .container .timeline .timeline-item p{   
     letter-spacing: 1px;
@@ -576,12 +578,12 @@ li a{
     border-radius: 50%;
 }
 
-.container .timeline .timeline-item:nth-child(1) .circle{
+.container .timeline .timeline-item:nth-child(even) .circle{
     right:-30px;
     transform: translate(108%,-50%); 
 }
 
-.container .timeline .timeline-item:nth-child(2) .circle{
+.container .timeline .timeline-item:nth-child(odd) .circle{
     left:-30px;   
     transform: translate(-102%,-50%);  
 }
@@ -600,12 +602,12 @@ li a{
         margin-bottom: 20px;
         margin-left: auto;
     }
-    .container .timeline .timeline-item:nth-child(2) {
+    .container .timeline .timeline-item:nth-child(odd) {
         float: none;
         clear: none;
         transform: translateX(0%);
     }
-    .container .timeline .timeline-item:nth-child(1){
+    .container .timeline .timeline-item:nth-child(even){
         float: none;
         clear: none;
         transform: translateX(0%);
@@ -618,7 +620,7 @@ li a{
         left: -2.9em;
 
     } 
-    .container .timeline .timeline-item:nth-child(1) .circle{
+    .container .timeline .timeline-item:nth-child(even) .circle{
         margin-top: 8px;
         right:-30px;
         transform: translate(-100%,-80%); 
