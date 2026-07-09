@@ -1,287 +1,582 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <!-- <link rel="stylesheet" href="owl.carousel.min.css">
-    <link rel="stylesheet" href="owl.theme.default.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-    <link rel="icon" type="image/x-icon" href="img/logo.png">
-    <link rel="stylesheet" href="style.css"/>
-    <title>Portfolio</title>
-    <script type="text/javascript">
-        (function() {          
-            emailjs.init('GZK6YflWxyGHq4vMi');
-        })();
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<meta name="ext-resource-dependency" content="img/maalem.png" data-resource-id="projMaalem" />
+<meta name="ext-resource-dependency" content="img/eu.png" data-resource-id="projEu" />
+<template id="__bundler_thumbnail" data-bg-color="#0B0C10">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="26" fill="none" stroke="#8EC5FC" stroke-width="4"/>
+    <text x="50" y="58" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">S</text>
+  </svg>
+</template>
 </head>
-<body class="main" >
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="uil uil-arrow-up" style="font-size: 30px;"></i></button>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #FAFAF8; overflow-x: hidden; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes floatSlow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    input::placeholder, textarea::placeholder { color: #A3A7AE; }
+    a { color: #3B6FE0; text-decoration: none; }
+    a:hover { color: #2C56B8; }
+    #particles-js canvas { position: absolute !important; top: 0; left: 0; z-index: 0; }
+  </style>
+</helmet>
 
-    <header id="particles-js">
-        <nav id="navbar">
-            
-            <span><img src="img/logo.png" height="160px" width="150px"></span>
-            <ul class="nav-links" style="display: flex; list-style: none;">
-                <li><a href="#">Home</a></li>
-                <li><a href="#section-1">About Me</a></li>
-                <li><a href="#section-2">Projects</a></li>
-                <li><a href="#section-3">Contact Me</a></li>
-            </ul>
-            <i class="u uil uil-bars"></i>
-        </nav>
-        <div style="position: absolute;top:50%;left:50%; transform: translate(-50%,-50%); color: white;">
-           
-            <h1 class="animate__animated  animate__backInUp">Hi, I'm <span class="name">Soufiane TAATALLA</span></h1>
-            <h2 >I'm a <span class="animate__animated animate__flipInX animate__infinite animate__slow">Web Developer</span></h2>
-            <div style="display: flex; cursor: pointer;">
-                <h1 style="padding-right: 8px;"><a href="https://www.linkedin.com/in/soufiane-taatalla-9955581a7/" style="color: rgb(45, 116, 197);"><i class="uil uil-linkedin"></i></a></h1>
-                <h1><a href="https://github.com/TASOUFIANE" style="color: grey;"><i class="uil uil-github"></i></a></h1>
-            </div>          
+<div style="position:relative; width:100%; background:#FAFAF8;">
+
+  <!-- NAV -->
+  <nav style="position:fixed; top:0; left:0; width:100%; z-index:999; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,80px); background:{{ navBg }}; backdrop-filter:blur(10px); transition:background 0.3s ease, box-shadow 0.3s ease; box-shadow:{{ navShadow }};">
+    <a href="#hero" style="font-size:19px; font-weight:700; letter-spacing:0.5px; color:{{ navTextColor }};">Soufiane<span style="color:#3B6FE0;">.</span></a>
+    <ul style="display:{{ navListDisplay }}; align-items:center; gap:36px; list-style:none;">
+      <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
+        <li><a href="{{ link.href }}" style="color:{{ navTextColor }}; font-size:15px; font-weight:500; opacity:0.9;">{{ link.label }}</a></li>
+      </sc-for>
+      <li style="display:flex; gap:4px; border:1px solid {{ langBorderColor }}; border-radius:20px; padding:3px;">
+        <sc-for list="{{ langOptions }}" as="opt" hint-placeholder-count="3">
+          <button onclick="{{ opt.onClick }}" style="border:none; background:{{ opt.bg }}; color:{{ opt.color }}; font-size:12px; font-weight:600; padding:5px 10px; border-radius:16px; cursor:pointer; font-family:inherit;">{{ opt.code }}</button>
+        </sc-for>
+      </li>
+    </ul>
+    <button onclick="{{ toggleMobileMenu }}" aria-label="Menu" style="display:{{ hamburgerDisplay }}; align-items:center; justify-content:center; width:40px; height:40px; border-radius:10px; border:none; background:transparent; color:{{ navTextColor }}; cursor:pointer;">
+      <i class="{{ hamburgerIconClass }}" style="font-size:24px;"></i>
+    </button>
+    <div style="display:{{ mobileMenuDisplay }}; position:absolute; top:100%; left:0; width:100%; flex-direction:column; gap:4px; padding:16px clamp(20px,5vw,80px) 24px; background:#0B0C10; box-shadow:0 12px 30px rgba(0,0,0,0.3);">
+      <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
+        <a href="{{ link.href }}" onclick="{{ closeMobileMenu }}" style="color:#fff; font-size:17px; font-weight:500; padding:12px 4px; border-bottom:1px solid rgba(255,255,255,0.08);">{{ link.label }}</a>
+      </sc-for>
+      <div style="display:flex; gap:8px; margin-top:14px;">
+        <sc-for list="{{ langOptions }}" as="opt" hint-placeholder-count="3">
+          <button onclick="{{ opt.onClick }}" style="flex:1; border:1px solid rgba(255,255,255,0.2); background:{{ opt.mobileBg }}; color:#fff; font-size:14px; font-weight:600; padding:10px; border-radius:10px; cursor:pointer; font-family:inherit;">{{ opt.code }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="particles-js" ref="{{ heroRef }}" style="position:relative; height:100vh; width:100%; background:linear-gradient(160deg,#0B0C10 0%,#14171D 60%,#0B0C10 100%); overflow:hidden; display:flex; align-items:center; justify-content:center;">
+    <div style="position:relative; z-index:2; text-align:center; padding:0 20px; animation:fadeUp 1s ease both;">
+      <p style="color:#8EC5FC; font-size:15px; letter-spacing:3px; text-transform:uppercase; font-weight:600; margin-bottom:18px;">{{ heroGreeting }}</p>
+      <h1 style="color:#fff; font-size:clamp(38px,7vw,72px); font-weight:800; letter-spacing:-1px; margin-bottom:14px;">Soufiane TAATALLA</h1>
+      <h2 style="color:#B7BEC9; font-size:clamp(18px,2.5vw,26px); font-weight:400; margin-bottom:36px;">{{ heroRole }}</h2>
+      <div style="display:flex; gap:18px; justify-content:center; align-items:center;">
+        <a href="https://www.linkedin.com/in/soufiane-taatalla-9955581a7/" target="_blank" style="width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; color:#fff;"><i class="uil uil-linkedin" style="font-size:22px;"></i></a>
+        <a href="https://github.com/TASOUFIANE" target="_blank" style="width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; color:#fff;"><i class="uil uil-github" style="font-size:22px;"></i></a>
+      </div>
+    </div>
+    <div style="position:absolute; bottom:36px; left:50%; transform:translateX(-50%); z-index:2; color:#7A828E; font-size:13px; letter-spacing:1px; animation:floatSlow 2.4s ease-in-out infinite;">{{ scrollLabel }} ↓</div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" ref="{{ setRef_about }}" style="max-width:1100px; margin:0 auto; padding:clamp(90px,18vw,140px) clamp(20px,5vw,24px) 100px; display:flex; flex-wrap:wrap; gap:48px 64px; align-items:center; opacity:{{ vis_about }}; transform:{{ visT_about }}; transition:opacity 0.9s ease, transform 0.9s ease;">
+    <div style="position:relative; flex:1 1 320px;">
+      <div style="position:absolute; inset:-14px; border:1.5px solid #3B6FE0; border-radius:16px; z-index:0;"></div>
+      <img src="img/profile.jpg" alt="Soufiane Taatalla" style="position:relative; z-index:1; width:100%; height:420px; object-fit:cover; border-radius:16px; box-shadow:0 20px 50px rgba(20,25,40,0.15);">
+    </div>
+    <div style="flex:1.4 1 380px;">
+      <p style="color:#3B6FE0; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ aboutLabel }}</p>
+      <h2 style="font-size:clamp(28px,4vw,40px); font-weight:700; color:#16181C; margin-bottom:22px; letter-spacing:-0.5px;">{{ aboutTitle }}</h2>
+      <p style="color:#5B6068; font-size:16px; line-height:1.8; margin-bottom:14px;">{{ aboutP1 }}</p>
+      <p style="color:#5B6068; font-size:16px; line-height:1.8; margin-bottom:32px;">{{ aboutP2 }}</p>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:38px; height:38px; border-radius:10px; background:#EAF1FF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><i class="uil uil-schedule" style="color:#3B6FE0; font-size:18px;"></i></div>
+          <div><span style="color:#9296A0; font-size:13px; display:block;">{{ birthdayLabel }}</span><span style="color:#16181C; font-size:15px; font-weight:500;">27/08/2001</span></div>
         </div>
-    </header>
-
-    <section class="first-section" id="section-1">
-       
-        <div class="first-section-content">
-            <div class="thumbnail-img">
-                <img src="img/profile.jpg" alt="profile" class="thumbnail" >
-            </div>
-        </div>   
-        <div class="second-section-content" >
-            <h1 class="animate__animated  animate__slideInRight animate__slower"> About <span style="color:#9FC9F3;">Me</span></h1>
-            <!-- <hr class="center-ball"> -->
-            <p class="animate__animated animate__slideInRight animate__slower">My name is <strong>Soufiane TAATALLA</strong> I'm a 24 years old student at the University of Science ibnu Zohr in Morocco. I'm a <strong>Backend Developer</strong> and I'm currently learning Frontend Development.</p>
-            <p class="animate__animated animate__slideInRight animate__slower">I'm a hard worker and I'm always looking for new challenges. I'm a fast learner and I'm always looking for new opportunities.</p>
-            <p class="animate__animated animate__slideInRight animate__slower">I'm a problem solver and I'm always looking for new solutions.</p>
-            <div class="informations">
-                <p class="animate__animated animate__slideInRight animate__slower"> <span><i class="uil uil-schedule" style="color: #9FC9F3;font-size: 25px;margin-top: 8px;"></i> <strong>Birthday :</strong> </span> 27/08/2001</p>               
-                <p class="animate__animated animate__slideInRight animate__slower"> <span> <i class="uil uil-map-marker" style="color: #9FC9F3;font-size: 25px;margin-top: 8px;"></i> <strong>Location :</strong> </span>Agadir, Morocco</p>
-                <!-- <p class="animate__animated animate__slideInRight animate__slower"> <span> <i class="uil uil-phone" style="color: #9FC9F3;font-size: 25px;"></i> Phone: </span>+212 8 78 10 29 40</p> -->
-                <p class="animate__animated animate__slideInRight animate__slower"><span> <i class="uil uil-envelope" style="color: #9FC9F3;font-size: 25px;margin-top: 8px;"></i> <strong>Email :</strong>  </span>soufiane.taatalla@gmail.com </p>
-            </div>
-        </div>   
-    </section>
-
-    <section class="second-section">
-        <div class="second-section-content">
-            <h1 class="animate__animated  animate__slideInRight animate__slow animate__delay-2s"> My <span style="color:#9FC9F3;">Skills</span></h1>
-            <center><p style="font-size: medium;font-weight: bold;" class="animate__animated  animate__slideInRight animate__slower animate__delay-3s"> Here is my skills to represent my expertise</p></center>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:38px; height:38px; border-radius:10px; background:#EAF1FF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><i class="uil uil-map-marker" style="color:#3B6FE0; font-size:18px;"></i></div>
+          <div><span style="color:#9296A0; font-size:13px; display:block;">{{ locationLabel }}</span><span style="color:#16181C; font-size:15px; font-weight:500;">Agadir, Morocco</span></div>
         </div>
-        <div class="skills">
-          <div class="skills-part responsive">
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>AJAX JQuery</p>
-                        <p>90%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="html"></span>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>JAVA</p>
-                        <p>60%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="css"></span>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>JAVASCRIPT</p>
-                        <p>40%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="js"></span>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>LARAVEL 8</p>
-                        <p>70%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="laravel"></span>
-                    </div>
-                </div>
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:38px; height:38px; border-radius:10px; background:#EAF1FF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><i class="uil uil-envelope" style="color:#3B6FE0; font-size:18px;"></i></div>
+          <div><span style="color:#9296A0; font-size:13px; display:block;">{{ emailLabel }}</span><span style="color:#16181C; font-size:15px; font-weight:500;">soufiane.taatalla@gmail.com</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" ref="{{ setRef_skills }}" style="background:#F3F3F0; padding:clamp(60px,10vw,100px) 24px;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:64px;">
+        <p style="color:#3B6FE0; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ skillsLabel }}</p>
+        <h2 style="font-size:clamp(28px,4vw,38px); font-weight:700; color:#16181C; letter-spacing:-0.5px;">{{ skillsTitle }}</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:40px 60px;">
+        <sc-for list="{{ skills }}" as="skill" hint-placeholder-count="8">
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+              <span style="font-size:15px; font-weight:600; color:#16181C;">{{ skill.name }}</span>
+              <span style="font-size:14px; font-weight:500; color:#9296A0;">{{ skill.level }}%</span>
+            </div>
+            <div style="width:100%; height:7px; background:#E4E4E0; border-radius:10px; overflow:hidden;">
+              <div style="height:100%; border-radius:10px; background:linear-gradient(90deg,#3B6FE0,#8EC5FC); width:{{ skill.width }}; transition:width 1.4s cubic-bezier(0.4,0,0.2,1);"></div>
+            </div>
           </div>
-          <div class="skills-part">
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>PHP 7</p>
-                        <p>70%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="php"></span>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>MySQL</p>
-                        <p>60%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="sql"></span>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>GIT</p>
-                        <p>70%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="git"></span>
-                    </div>
-                </div>
-                <div class="skill-bar">
-                    <div class="skill-info">
-                        <p>Vue JS</p>
-                        <p>60%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="uml"></span>
-                    </div>
-                </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMIC TIMELINE -->
+  <section id="academic" ref="{{ setRef_academic }}" style="max-width:800px; margin:0 auto; padding:clamp(60px,10vw,100px) 24px;">
+    <div style="text-align:center; margin-bottom:56px;">
+      <p style="color:#3B6FE0; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ educationLabel }}</p>
+      <h2 style="font-size:clamp(28px,4vw,38px); font-weight:700; color:#16181C; letter-spacing:-0.5px;">{{ academicTitle }}</h2>
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <sc-for list="{{ academic }}" as="item" hint-placeholder-count="2">
+        <div style="display:grid; grid-template-columns:minmax(64px,150px) 20px 1fr; gap:0 clamp(10px,3vw,24px); padding-bottom:36px;">
+          <div style="text-align:right; font-size:clamp(12px,2vw,14px); font-weight:600; color:#3B6FE0; padding-top:2px;">{{ item.year }}</div>
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <div style="width:12px; height:12px; border-radius:50%; background:#3B6FE0; margin-top:6px; flex-shrink:0;"></div>
+            <div style="width:1.5px; flex:1; background:#DCDFE4; margin-top:4px;"></div>
           </div>
-            
-
+          <p style="font-size:15px; color:#4A4F58; line-height:1.6; padding-bottom:4px;">{{ item.text }}</p>
         </div>
-        
-    </section>
+      </sc-for>
+    </div>
+  </section>
 
-    <section class="third-section">
-        <div class="third-section-content">
-            <h1 class="animate__animated  animate__slideInRight animate__slow" style="text-align: center;"> My Academic <span style="color:#9FC9F3;"> Journey</span></h1>
-            <center><p style="font-size: medium;font-weight: bold;" class="animate__animated  animate__slideInRight animate__slower"> My path from the beginning</p></center>
-        </div>
-        <div class="container">
-            <div class="timeline">              
-                <div class="timeline-item">                   
-                        <h3> 2022 - 2023 </h3>
-                        <p>Bachelor of computer Engineering at the University of Science Ibn Zohr in Agadir, Morocco</p>
-                        <span class="circle"></span>                                       
-                </div>
-                <div class="timeline-item">                   
-                        <h3>  2020 - 2022 </h3>
-                        <p>Associate degree in Computer Engineering from the Higher School of Technology,Laayoune ,Morocco</p>
-                        <span class="circle"></span>                     
-                </div>
+  <!-- EXPERIENCE TIMELINE -->
+  <section id="experience" ref="{{ setRef_experience }}" style="background:#F3F3F0; padding:clamp(60px,10vw,100px) 24px;">
+    <div style="max-width:800px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:56px;">
+        <p style="color:#3B6FE0; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ experienceLabel }}</p>
+        <h2 style="font-size:clamp(28px,4vw,38px); font-weight:700; color:#16181C; letter-spacing:-0.5px;">{{ experienceTitle }}</h2>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <sc-for list="{{ experience }}" as="item" hint-placeholder-count="4">
+          <a href="{{ item.link }}" target="{{ item.target }}" style="display:grid; grid-template-columns:minmax(80px,190px) 20px 1fr; gap:0 clamp(10px,3vw,24px); padding-bottom:36px; color:inherit;">
+            <div style="text-align:right; font-size:clamp(12px,2vw,14px); font-weight:600; color:#3B6FE0; padding-top:2px;">{{ item.year }}</div>
+            <div style="display:flex; flex-direction:column; align-items:center;">
+              <div style="width:12px; height:12px; border-radius:50%; background:#3B6FE0; margin-top:6px; flex-shrink:0;"></div>
+              <div style="width:1.5px; flex:1; background:#DCDFE4; margin-top:4px;"></div>
             </div>
-        </div>
-    </section>
-       
-    <section class="third-section">
-        <div class="third-section-content">
-            <h1 class="animate__animated  animate__slideInRight animate__slow animate__delay-6s " style="text-align: center;"> My professional  <span style="color:#9FC9F3;"> Experience</span></h1>
-            <center><p style="font-size: medium;font-weight: bold;" class="animate__animated animate__slideInRight  animate__slower animate__delay-7s"> My path from the beginning</p></center>
-        </div>
-        <div class="container">
-            <div class="timeline">
-                <div class="timeline-item">   
-                    <a href="https://ecomfulfillment.eu/" style="color: black;cursor: pointer;text-decoration: none;" target="_blank">               
-                        <h3> From September 2024 </h3>
-                        <p>Remote Web Developer in European Fulfillment Center Service Granada, Spain</p>
-                        <span class="circle"></span>   
-                    </a>                                     
-                </div> 
-                <div class="timeline-item">                   
-                    <a href="https://ecomfulfillment.eu/"  style="color: black;cursor: pointer; text-decoration: none;" target="_blank">
-                        <h3> January 2024 - July 2024 </h3>
-                        <p>Remote Web Developer Intern in European Fulfillment Center Service - Granada, Spain</p>
-                        <span class="circle"></span>    
-                    </a>                                   
-                </div>             
-                <div class="timeline-item">                   
-                        <h3> February 2023 - July 2023 </h3>
-                        <p>Web Developer Intern in Palace Digital Agency - Agadir, Morocco</p>
-                        <span class="circle"></span>                                       
-                </div>
-                <div class="timeline-item">                   
-                        <h3> June 2021 - July 2021 </h3>
-                        <p>Front-End Intern in From Telecom  - Agadir, Morocco</p>
-                        <span class="circle"></span>                     
-                </div>
-            </div>
-        </div>
-    </section>
+            <p style="font-size:15px; color:#4A4F58; line-height:1.6; padding-bottom:4px;">{{ item.text }}</p>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
 
-    <section class="fourth-section"  id="section-2">
-        <div class="fourth-section-content">
-            <h1 class="animate__animated  animate__slideInRight animate__slow animate__delay-8s" style="text-align: center;"> My<span style="color:#9FC9F3;"> Projects</span></h1>
-            <center><p style="font-size: medium;font-weight: bold;" class="animate__animated  animate__slideInRight animate__slower animate__delay-9s"> Some projects that I have worked in</p></center>
-        </div>
-        <div class="swiper">
-          
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide"> <a href="https://mooqf.palace-agency.com/" target="_blank" style="cursor: pointer;"><img src="img/maalem.png" alt=""></a></div>
-                             <div class="swiper-slide"><a href="https://www.seller.ecomfulfilment.eu/" target="_blank" style="cursor: pointer;"><img src="img/eu.PNG" alt=""></a></div>
+  <!-- PROJECTS -->
+  <section id="projects" ref="{{ setRef_projects }}" style="max-width:1100px; margin:0 auto; padding:clamp(60px,10vw,100px) 24px;">
+    <div style="text-align:center; margin-bottom:56px;">
+      <p style="color:#3B6FE0; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ portfolioLabel }}</p>
+      <h2 style="font-size:clamp(28px,4vw,38px); font-weight:700; color:#16181C; letter-spacing:-0.5px;">{{ projectsTitle }}</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:32px;">
+      <sc-for list="{{ projects }}" as="project" hint-placeholder-count="2">
+        <a href="{{ project.link }}" target="_blank" style="display:block; border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(20,25,40,0.08); transition:transform 0.3s ease, box-shadow 0.3s ease;" style-hover="transform:translateY(-6px); box-shadow:0 18px 40px rgba(20,25,40,0.14);">
+          <div style="width:100%; height:260px; overflow:hidden; background:#EEF0F2;">
+            <img src="{{ project.img }}" alt="{{ project.title }}" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="padding:20px 22px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:16px; font-weight:600; color:#16181C;">{{ project.title }}</span>
+            <i class="uil uil-arrow-up-right" style="color:#3B6FE0; font-size:20px;"></i>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
 
-                
-              <!-- <div class="swiper-slide"><img src="img/3.PNG" alt=""></div>       
-              <div class="swiper-slide"><img src="img/4.PNG" alt=""></div>     -->
-            </div>
-           
-            <div class="swiper-pagination"></div>
-          
-           
-        </div>
-    </section>
+  <!-- CONTACT -->
+  <section id="contact" ref="{{ setRef_contact }}" style="background:#0B0C10; padding:clamp(70px,12vw,110px) 24px;">
+    <div style="max-width:640px; margin:0 auto; text-align:center;">
+      <p style="color:#8EC5FC; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ contactLabel }}</p>
+      <h2 style="font-size:clamp(28px,4vw,38px); font-weight:700; color:#fff; letter-spacing:-0.5px; margin-bottom:16px;">{{ contactTitle }}</h2>
+      <p style="color:#9BA1AC; font-size:16px; margin-bottom:48px;">{{ contactSubtitle }}</p>
+      <form style="display:flex; flex-direction:column; gap:14px; text-align:left;">
+        <input type="text" placeholder="{{ namePlaceholder }}" value="{{ formName }}" onchange="{{ onNameChange }}" required="" style="padding:14px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.04); color:#fff; font-size:15px; font-family:inherit; outline:none;">
+        <input type="email" placeholder="{{ emailPlaceholder }}" value="{{ formEmail }}" onchange="{{ onEmailChange }}" required="" style="padding:14px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.04); color:#fff; font-size:15px; font-family:inherit; outline:none;">
+        <textarea rows="5" placeholder="{{ messagePlaceholder }}" value="{{ formMessage }}" onchange="{{ onMessageChange }}" style="padding:14px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.04); color:#fff; font-size:15px; font-family:inherit; outline:none; resize:none;"></textarea>
+        <button type="button" onclick="{{ sendMail }}" style="margin-top:6px; padding:14px 16px; border-radius:10px; border:none; background:linear-gradient(90deg,#3B6FE0,#5C8DF2); color:#fff; font-size:15px; font-weight:600; font-family:inherit; cursor:pointer;">{{ sendLabel }}</button>
+      </form>
+    </div>
+  </section>
 
-    <section class="five-section"  id="section-3">
-        <div class="five-section-content">
-            <h1 class="animate__animated  animate__slideInRight animate__slow animate__delay-8s" style="text-align: center;">Contact <span style="color:#9FC9F3;">Me</span></h1>
-            <center><p style="font-size: medium;font-weight: bold;" class="animate__animated  animate__slideInRight animate__slower animate__delay-9s"> For any futur collaboration</p></center>
-        </div>
-        <div class="contact-me">          
-            <div class="svg">
-                <img src="img/contact.svg" alt="">
-            </div>
-            <div class="contact-me-content">
-                <form id="conatact-form">
-                     <input type="text"  id="name" placeholder="Enter your name" required>
-                     <input type="email"  id="email_id" placeholder="Enter your Email" required>  
-                     <textarea cols="30" rows="7" id="message" placeholder="Enter your Message"></textarea>
-                     <center><input type="submit"  class="button" value="send" onclick="SendMail()"></center>
-                </form>
-             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-        </div>
-        <div class="footer-icons">
-            <div><a href="https://github.com/TASOUFIANE"><i class="uil uil-github-alt"></i></a></div>
-            <div><a href="https://www.linkedin.com/in/soufiane-taatalla-9955581a7/"><i class="uil uil-linkedin-alt"></i></a></div>
-        </div>
-        <div class="footer-links">
-            <div><a href="#">Home</a></div>
-            <div><a href="#section-1">About Me</a></div>
-            <div><a href="#section-2">Projects</a></div>
-            <div><a href="#section-3">Contact Me</a></div>
-        </div>
-        <div class="footer-copyright">
-            <p style="padding-left: 20px;">© 2025 All rights reserved | Made with <i class="uil uil-heart"></i> by SOUFIANE TAATALLA</p>
-        </div>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/style.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
+  <!-- FOOTER -->
+  <footer style="background:#0B0C10; border-top:1px solid rgba(255,255,255,0.08); padding:40px 24px; display:flex; flex-direction:column; align-items:center; gap:20px;">
+    <div style="display:flex; gap:16px;">
+      <a href="https://github.com/TASOUFIANE" target="_blank" style="color:#9BA1AC; font-size:20px;"><i class="uil uil-github-alt"></i></a>
+      <a href="https://www.linkedin.com/in/soufiane-taatalla-9955581a7/" target="_blank" style="color:#9BA1AC; font-size:20px;"><i class="uil uil-linkedin-alt"></i></a>
+    </div>
+    <p style="color:#5B6068; font-size:13px;">{{ footerCopyright }}</p>
+  </footer>
+
+  <button onclick="{{ scrollTop }}" style="position:fixed; bottom:28px; right:28px; z-index:99; width:46px; height:46px; border-radius:50%; border:none; background:#3B6FE0; color:#fff; display:{{ topBtnDisplay }}; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 24px rgba(59,111,224,0.35);"><i class="uil uil-arrow-up" style="font-size:20px;"></i></button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    scrolled: false,
+    showTop: false,
+    visible: {},
+    formName: '',
+    formEmail: '',
+    formMessage: '',
+    sending: false,
+    sent: false,
+    lang: 'en',
+    isMobile: typeof window !== 'undefined' ? window.innerWidth < 860 : false,
+    mobileMenuOpen: false,
+  };
+
+  sectionRefs = {};
+
+  i18n = {
+    en: {
+      nav: { home: 'Home', about: 'About', projects: 'Projects', contact: 'Contact' },
+      heroGreeting: "Hello, I'm", heroRole: 'Backend Developer & Web Developer', scrollLabel: 'SCROLL',
+      aboutLabel: 'About Me', aboutTitle: 'A bit about who I am',
+      aboutP1: "I'm Soufiane TAATALLA, a computer engineering student at Ibn Zohr University in Morocco. I work primarily as a Backend Developer and I'm continually expanding into Frontend Development.",
+      aboutP2: "Hard-working, fast-learning, and always chasing the next challenge — I care about solving real problems with clean, reliable code.",
+      birthdayLabel: 'Birthday', locationLabel: 'Location', emailLabel: 'Email',
+      skillsLabel: 'Skills', skillsTitle: 'What I work with',
+      educationLabel: 'Education', academicTitle: 'Academic Journey',
+      experienceLabel: 'Experience', experienceTitle: 'Professional Experience',
+      portfolioLabel: 'Portfolio', projectsTitle: 'Selected Projects',
+      contactLabel: 'Get in touch', contactTitle: "Let's work together",
+      contactSubtitle: 'Have a project in mind or just want to say hi? My inbox is open.',
+      namePlaceholder: 'Your name', emailPlaceholder: 'Your email', messagePlaceholder: 'Your message',
+      sending: 'Sending…', sent: 'Sent ✓', send: 'Send Message',
+      footerCopyright: '© 2026 Soufiane TAATALLA — All rights reserved',
+    },
+    fr: {
+      nav: { home: 'Accueil', about: 'À propos', projects: 'Projets', contact: 'Contact' },
+      heroGreeting: 'Bonjour, je suis', heroRole: 'Développeur Backend & Web', scrollLabel: 'DÉFILER',
+      aboutLabel: 'À propos de moi', aboutTitle: 'Un peu sur moi',
+      aboutP1: "Je suis Soufiane TAATALLA, étudiant en ingénierie informatique à l'Université Ibn Zohr au Maroc. Je travaille principalement en tant que Développeur Backend et je me forme continuellement au Frontend.",
+      aboutP2: "Travailleur, apprenant vite, toujours à la recherche du prochain défi — je tiens à résoudre de vrais problèmes avec un code propre et fiable.",
+      birthdayLabel: 'Anniversaire', locationLabel: 'Localisation', emailLabel: 'Email',
+      skillsLabel: 'Compétences', skillsTitle: 'Avec quoi je travaille',
+      educationLabel: 'Éducation', academicTitle: 'Parcours académique',
+      experienceLabel: 'Expérience', experienceTitle: 'Expérience professionnelle',
+      portfolioLabel: 'Portfolio', projectsTitle: 'Projets sélectionnés',
+      contactLabel: 'Contactez-moi', contactTitle: 'Travaillons ensemble',
+      contactSubtitle: "Un projet en tête ou juste envie de dire bonjour ? Ma boîte de réception est ouverte.",
+      namePlaceholder: 'Votre nom', emailPlaceholder: 'Votre email', messagePlaceholder: 'Votre message',
+      sending: 'Envoi…', sent: 'Envoyé ✓', send: 'Envoyer le message',
+      footerCopyright: '© 2026 Soufiane TAATALLA — Tous droits réservés',
+    },
+    de: {
+      nav: { home: 'Start', about: 'Über mich', projects: 'Projekte', contact: 'Kontakt' },
+      heroGreeting: 'Hallo, ich bin', heroRole: 'Backend- & Webentwickler', scrollLabel: 'SCROLLEN',
+      aboutLabel: 'Über mich', aboutTitle: 'Ein wenig über mich',
+      aboutP1: "Ich bin Soufiane TAATALLA, Student der Informatik an der Ibn-Zohr-Universität in Marokko. Ich arbeite hauptsächlich als Backend-Entwickler und vertiefe mich kontinuierlich in die Frontend-Entwicklung.",
+      aboutP2: "Fleißig, lernfähig und stets auf der Suche nach der nächsten Herausforderung — mir liegt daran, echte Probleme mit sauberem, zuverlässigem Code zu lösen.",
+      birthdayLabel: 'Geburtstag', locationLabel: 'Standort', emailLabel: 'E-Mail',
+      skillsLabel: 'Fähigkeiten', skillsTitle: 'Womit ich arbeite',
+      educationLabel: 'Ausbildung', academicTitle: 'Akademischer Werdegang',
+      experienceLabel: 'Erfahrung', experienceTitle: 'Berufserfahrung',
+      portfolioLabel: 'Portfolio', projectsTitle: 'Ausgewählte Projekte',
+      contactLabel: 'Kontakt aufnehmen', contactTitle: 'Lass uns zusammenarbeiten',
+      contactSubtitle: 'Hast du ein Projekt im Kopf oder willst einfach Hallo sagen? Mein Postfach ist offen.',
+      namePlaceholder: 'Dein Name', emailPlaceholder: 'Deine E-Mail', messagePlaceholder: 'Deine Nachricht',
+      sending: 'Wird gesendet…', sent: 'Gesendet ✓', send: 'Nachricht senden',
+      footerCopyright: '© 2026 Soufiane TAATALLA — Alle Rechte vorbehalten',
+    },
+  };
+
+  skillsData = [
+    { name: 'AJAX / jQuery', level: 90 },
+    { name: 'PHP 7', level: 70 },
+    { name: 'Laravel 8', level: 70 },
+    { name: 'Git', level: 70 },
+    { name: 'MySQL', level: 60 },
+    { name: 'Vue JS', level: 60 },
+    { name: 'Java', level: 60 },
+    { name: 'JavaScript', level: 40 },
+  ];
+
+  academicData = [
+    {
+      year: '2022 – 2023',
+      text: {
+        en: 'Bachelor of Computer Engineering, University of Science Ibn Zohr — Agadir, Morocco',
+        fr: "Licence en génie informatique, Université Ibn Zohr — Agadir, Maroc",
+        de: 'Bachelor der Informatik, Universität Ibn Zohr — Agadir, Marokko',
+      },
+    },
+    {
+      year: '2020 – 2022',
+      text: {
+        en: 'Associate degree in Computer Engineering, Higher School of Technology — Laâyoune, Morocco',
+        fr: "DUT en génie informatique, École Supérieure de Technologie — Laâyoune, Maroc",
+        de: 'Fachhochschulabschluss in Informatik, Höhere Technische Schule — Laâyoune, Marokko',
+      },
+    },
+  ];
+
+  experienceData = [
+    {
+      year: 'Since Sep 2024',
+      text: {
+        en: 'Remote Web Developer, European Fulfillment Center Service — Granada, Spain',
+        fr: 'Développeur Web à distance, European Fulfillment Center Service — Grenade, Espagne',
+        de: 'Remote-Webentwickler, European Fulfillment Center Service — Granada, Spanien',
+      },
+      link: 'https://ecomfulfillment.eu/', target: '_blank',
+    },
+    {
+      year: 'Jan – Jul 2024',
+      text: {
+        en: 'Remote Web Developer Intern, European Fulfillment Center Service — Granada, Spain',
+        fr: 'Stagiaire développeur Web à distance, European Fulfillment Center Service — Grenade, Espagne',
+        de: 'Praktikant Remote-Webentwicklung, European Fulfillment Center Service — Granada, Spanien',
+      },
+      link: 'https://ecomfulfillment.eu/', target: '_blank',
+    },
+    {
+      year: 'Feb – Jul 2023',
+      text: {
+        en: 'Web Developer Intern, Palace Digital Agency — Agadir, Morocco',
+        fr: 'Stagiaire développeur Web, Palace Digital Agency — Agadir, Maroc',
+        de: 'Praktikant Webentwicklung, Palace Digital Agency — Agadir, Marokko',
+      },
+      link: '#', target: '_self',
+    },
+    {
+      year: 'Jun – Jul 2021',
+      text: {
+        en: 'Front-End Intern, From Telecom — Agadir, Morocco',
+        fr: 'Stagiaire Front-End, From Telecom — Agadir, Maroc',
+        de: 'Praktikant Frontend, From Telecom — Agadir, Marokko',
+      },
+      link: '#', target: '_self',
+    },
+  ];
+
+  get projectsData() {
+    const res = (typeof window !== 'undefined' && window.__resources) || {};
+    return [
+      { title: 'Mooqf', img: res.projMaalem || 'img/maalem.png', link: 'https://mooqf.palace-agency.com/' },
+      { title: 'EU Fulfillment', img: res.projEu || 'img/eu.png', link: 'https://www.seller.ecomfulfilment.eu/' },
+    ];
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onResize);
+
+    if (window.particlesJS) {
+      window.particlesJS('particles-js', {
+        particles: {
+          number: { value: 55, density: { enable: true, value_area: 900 } },
+          color: { value: '#8EC5FC' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.4, random: true },
+          size: { value: 2.5, random: true },
+          line_linked: { enable: true, distance: 140, color: '#3B6FE0', opacity: 0.25, width: 1 },
+          move: { enable: true, speed: 1.2, direction: 'none', random: true, out_mode: 'out' },
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: false }, resize: true },
+          modes: { grab: { distance: 160, line_linked: { opacity: 0.5 } } },
+        },
+        retina_detect: true,
+      });
+    }
+
+    if (window.emailjs) {
+      window.emailjs.init('GZK6YflWxyGHq4vMi');
+    }
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('data-section-id');
+          this.setState((s) => ({ visible: { ...s.visible, [id]: true } }));
+        }
+      });
+    }, { threshold: 0.15 });
+
+    Object.keys(this.sectionRefs).forEach((id) => {
+      const el = this.sectionRefs[id];
+      if (el) {
+        el.setAttribute('data-section-id', id);
+        this.observer.observe(el);
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    if (this.observer) this.observer.disconnect();
+  }
+
+  onScroll = () => {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    this.setState({ scrolled: y > 40, showTop: y > 300 });
+  };
+
+  onResize = () => {
+    const isMobile = window.innerWidth < 860;
+    this.setState((s) => (s.isMobile === isMobile ? null : { isMobile, mobileMenuOpen: isMobile ? s.mobileMenuOpen : false }));
+  };
+
+  toggleMobileMenu = () => this.setState((s) => ({ mobileMenuOpen: !s.mobileMenuOpen }));
+  closeMobileMenu = () => this.setState({ mobileMenuOpen: false });
+
+  makeRef = (id) => (el) => {
+    this.sectionRefs[id] = el;
+  };
+
+  scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  sendMail = () => {
+    if (this.state.sending) return;
+    const { formName, formEmail, formMessage } = this.state;
+    if (!formName || !formEmail) return;
+    this.setState({ sending: true });
+    if (window.emailjs) {
+      window.emailjs
+        .send('service_md33vj4', 'template_ccnnzes', {
+          from_name: formName,
+          email_id: formEmail,
+          message: formMessage,
+        })
+        .then(() => {
+          this.setState({ sending: false, sent: true, formName: '', formEmail: '', formMessage: '' });
+          setTimeout(() => this.setState({ sent: false }), 3000);
+        })
+        .catch(() => {
+          this.setState({ sending: false });
+        });
+    } else {
+      this.setState({ sending: false });
+    }
+  };
+
+  setLang = (lang) => this.setState({ lang });
+
+  renderVals() {
+    const v = this.state.visible;
+    const t = this.i18n[this.state.lang] || this.i18n.en;
+    const lang = this.state.lang;
+    const sectionStyle = (id) => ({
+      [`vis_${id}`]: v[id] ? 1 : 0,
+      [`visT_${id}`]: v[id] ? 'translateY(0)' : 'translateY(24px)',
+    });
+
+    const langCodes = ['en', 'fr', 'de'];
+    const isDark = !this.state.scrolled;
+
+    return {
+      navBg: this.state.scrolled ? 'rgba(250,250,248,0.85)' : 'transparent',
+      navShadow: this.state.scrolled ? '0 2px 20px rgba(20,25,40,0.06)' : 'none',
+      navTextColor: this.state.scrolled ? '#16181C' : '#fff',
+      navLinks: [
+        { href: '#hero', label: t.nav.home },
+        { href: '#about', label: t.nav.about },
+        { href: '#projects', label: t.nav.projects },
+        { href: '#contact', label: t.nav.contact },
+      ],
+      langBorderColor: isDark ? 'rgba(255,255,255,0.25)' : 'rgba(20,25,40,0.15)',
+      langOptions: langCodes.map((code) => ({
+        code: code.toUpperCase(),
+        onClick: () => this.setLang(code),
+        bg: lang === code ? '#3B6FE0' : 'transparent',
+        color: lang === code ? '#fff' : (isDark ? '#fff' : '#16181C'),
+        mobileBg: lang === code ? '#3B6FE0' : 'transparent',
+      })),
+
+      navListDisplay: this.state.isMobile ? 'none' : 'flex',
+      hamburgerDisplay: this.state.isMobile ? 'flex' : 'none',
+      hamburgerIconClass: this.state.mobileMenuOpen ? 'uil uil-multiply' : 'uil uil-bars',
+      mobileMenuDisplay: (this.state.isMobile && this.state.mobileMenuOpen) ? 'flex' : 'none',
+      toggleMobileMenu: this.toggleMobileMenu,
+      closeMobileMenu: this.closeMobileMenu,
+
+      heroGreeting: t.heroGreeting,
+      heroRole: t.heroRole,
+      scrollLabel: t.scrollLabel,
+
+      aboutLabel: t.aboutLabel,
+      aboutTitle: t.aboutTitle,
+      aboutP1: t.aboutP1,
+      aboutP2: t.aboutP2,
+      birthdayLabel: t.birthdayLabel,
+      locationLabel: t.locationLabel,
+      emailLabel: t.emailLabel,
+
+      skillsLabel: t.skillsLabel,
+      skillsTitle: t.skillsTitle,
+
+      educationLabel: t.educationLabel,
+      academicTitle: t.academicTitle,
+
+      experienceLabel: t.experienceLabel,
+      experienceTitle: t.experienceTitle,
+
+      portfolioLabel: t.portfolioLabel,
+      projectsTitle: t.projectsTitle,
+
+      contactLabel: t.contactLabel,
+      contactTitle: t.contactTitle,
+      contactSubtitle: t.contactSubtitle,
+      namePlaceholder: t.namePlaceholder,
+      emailPlaceholder: t.emailPlaceholder,
+      messagePlaceholder: t.messagePlaceholder,
+
+      footerCopyright: t.footerCopyright,
+
+      setRef_about: this.makeRef('about'),
+      setRef_skills: this.makeRef('skills'),
+      setRef_academic: this.makeRef('academic'),
+      setRef_experience: this.makeRef('experience'),
+      setRef_projects: this.makeRef('projects'),
+      setRef_contact: this.makeRef('contact'),
+
+      ...sectionStyle('about'),
+      ...sectionStyle('skills'),
+      ...sectionStyle('academic'),
+      ...sectionStyle('experience'),
+      ...sectionStyle('projects'),
+      ...sectionStyle('contact'),
+
+      skills: this.skillsData.map((s) => ({
+        ...s,
+        width: v.skills ? `${s.level}%` : '0%',
+      })),
+      academic: this.academicData.map((it) => ({ year: it.year, text: it.text[lang] || it.text.en })),
+      experience: this.experienceData.map((it) => ({ ...it, text: it.text[lang] || it.text.en })),
+      projects: this.projectsData,
+
+      formName: this.state.formName,
+      formEmail: this.state.formEmail,
+      formMessage: this.state.formMessage,
+      onNameChange: (e) => this.setState({ formName: e.target.value }),
+      onEmailChange: (e) => this.setState({ formEmail: e.target.value }),
+      onMessageChange: (e) => this.setState({ formMessage: e.target.value }),
+      sendMail: this.sendMail,
+      sendLabel: this.state.sending ? t.sending : this.state.sent ? t.sent : t.send,
+
+      topBtnDisplay: this.state.showTop ? 'flex' : 'none',
+      scrollTop: this.scrollTop,
+    };
+  }
+}
+
+</script>
 </body>
 </html>
