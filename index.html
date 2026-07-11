@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
@@ -38,7 +39,7 @@
 
   <!-- NAV -->
   <nav style="position:fixed; top:0; left:0; width:100%; z-index:999; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,80px); background:{{ navBg }}; backdrop-filter:blur(10px); transition:background 0.3s ease, box-shadow 0.3s ease; box-shadow:{{ navShadow }};">
-    <a href="#hero" style="font-size:19px; font-weight:700; letter-spacing:0.5px; color:{{ navTextColor }};">Soufiane<span style="color:#3B6FE0;">.</span></a>
+    <a href="#hero" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; background:#0B0C10; font-size:19px; font-weight:800; letter-spacing:-0.5px; color:#fff;">ST<span style="color:#8EC5FC;">.</span></a>
     <ul style="display:{{ navListDisplay }}; align-items:center; gap:36px; list-style:none;">
       <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="4">
         <li><a href="{{ link.href }}" style="color:{{ navTextColor }}; font-size:15px; font-weight:500; opacity:0.9;">{{ link.label }}</a></li>
@@ -113,15 +114,15 @@
         <p style="color:#3B6FE0; font-weight:600; letter-spacing:2px; font-size:13px; text-transform:uppercase; margin-bottom:10px;">{{ skillsLabel }}</p>
         <h2 style="font-size:clamp(28px,4vw,38px); font-weight:700; color:#16181C; letter-spacing:-0.5px;">{{ skillsTitle }}</h2>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:40px 60px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:16px;">
         <sc-for list="{{ skills }}" as="skill" hint-placeholder-count="8">
-          <div>
-            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
-              <span style="font-size:15px; font-weight:600; color:#16181C;">{{ skill.name }}</span>
-              <span style="font-size:14px; font-weight:500; color:#9296A0;">{{ skill.level }}%</span>
+          <div style="background:#fff; border-radius:14px; padding:20px 22px; display:flex; align-items:center; gap:16px; box-shadow:0 4px 16px rgba(20,25,40,0.05); transition:transform 0.25s ease, box-shadow 0.25s ease;" style-hover="transform:translateY(-4px); box-shadow:0 12px 28px rgba(20,25,40,0.1);">
+            <div style="width:44px; height:44px; border-radius:10px; background:#EAF1FF; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <i class="{{ skill.iconClass }}" style="font-size:22px; color:#3B6FE0;"></i>
             </div>
-            <div style="width:100%; height:7px; background:#E4E4E0; border-radius:10px; overflow:hidden;">
-              <div style="height:100%; border-radius:10px; background:linear-gradient(90deg,#3B6FE0,#8EC5FC); width:{{ skill.width }}; transition:width 1.4s cubic-bezier(0.4,0,0.2,1);"></div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-size:15.5px; font-weight:600; color:#16181C;">{{ skill.name }}</span>
+              <span style="font-size:12.5px; font-weight:500; color:#9296A0;">{{ skill.tier }}</span>
             </div>
           </div>
         </sc-for>
@@ -294,14 +295,14 @@ class Component extends DCLogic {
   };
 
   skillsData = [
-    { name: 'AJAX / jQuery', level: 90 },
-    { name: 'PHP 7', level: 70 },
-    { name: 'Laravel 8', level: 70 },
-    { name: 'Git', level: 70 },
-    { name: 'MySQL', level: 60 },
-    { name: 'Vue JS', level: 60 },
-    { name: 'Java', level: 60 },
-    { name: 'JavaScript', level: 40 },
+    { name: 'AJAX / jQuery', level: 90, iconClass: 'devicon-jquery-plain' },
+    { name: 'PHP 7', level: 70, iconClass: 'devicon-php-plain' },
+    { name: 'Laravel 8', level: 70, iconClass: 'devicon-laravel-plain' },
+    { name: 'Git', level: 70, iconClass: 'devicon-git-plain' },
+    { name: 'MySQL', level: 60, iconClass: 'devicon-mysql-plain' },
+    { name: 'Vue JS', level: 60, iconClass: 'devicon-vuejs-plain' },
+    { name: 'Java', level: 60, iconClass: 'devicon-java-plain' },
+    { name: 'JavaScript', level: 40, iconClass: 'devicon-javascript-plain' },
   ];
 
   academicData = [
@@ -554,10 +555,19 @@ class Component extends DCLogic {
       ...sectionStyle('projects'),
       ...sectionStyle('contact'),
 
-      skills: this.skillsData.map((s) => ({
-        ...s,
-        width: v.skills ? `${s.level}%` : '0%',
-      })),
+      skills: this.skillsData.map((s) => {
+        const filled = Math.round(s.level / 20);
+        const tiers = {
+          en: ['Beginner', 'Basic', 'Intermediate', 'Advanced', 'Expert'],
+          fr: ['Débutant', 'Basique', 'Intermédiaire', 'Avancé', 'Expert'],
+          de: ['Anfänger', 'Grundkenntnisse', 'Mittel', 'Fortgeschritten', 'Experte'],
+        }[lang] || ['Beginner', 'Basic', 'Intermediate', 'Advanced', 'Expert'];
+        return {
+          name: s.name,
+          iconClass: s.iconClass,
+          tier: tiers[Math.max(0, filled - 1)],
+        };
+      }),
       academic: this.academicData.map((it) => ({ year: it.year, text: it.text[lang] || it.text.en })),
       experience: this.experienceData.map((it) => ({ ...it, text: it.text[lang] || it.text.en })),
       projects: this.projectsData,
